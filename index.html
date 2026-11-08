@@ -6,9 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101b35">
 <title>Amy Diana | Takaful Consultant</title>
-<meta name="description" content="Dapatkan konsultasi dan sebut harga pelan perlindungan takaful bersama Amy Diana.">
+<meta name="description" content="Dapatkan konsultasi takaful bersama Amy Diana. Medical Card, Hibah, Critical Illness dan pelan perlindungan.">
+
 <style>
-:root {
+:root{
   --navy:#101b35;
   --navy2:#192746;
   --gold:#d5ad62;
@@ -19,159 +20,351 @@
   --green:#168b55;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:15px}
 body{
   margin:0;background:#eeece7;color:#20283a;
   font-family:Arial,Helvetica,sans-serif;
   padding-bottom:85px;
 }
 a{text-decoration:none;color:inherit}
-.container{width:min(100%,480px);margin:auto;background:var(--cream);min-height:100vh}
+button,input,select,textarea{font-family:inherit}
+.container{
+  width:min(100%,480px);
+  margin:auto;background:var(--cream);
+  min-height:100vh;overflow:hidden;
+}
+
+/* PROFILE */
 header{
-  background:var(--navy);color:white;padding:22px 22px 28px;
-  text-align:center;position:relative;
+  background:var(--navy);
+  color:white;text-align:center;
+  padding:22px 20px 26px;
 }
 .online{
   display:inline-flex;align-items:center;gap:7px;
-  font-size:11px;color:#d9e5d8;background:#233754;
-  border-radius:30px;padding:7px 12px;margin-bottom:20px;
+  font-size:11px;color:#d9e5d8;
+  background:#233754;border-radius:30px;
+  padding:7px 12px;margin-bottom:19px;
 }
-.dot{width:7px;height:7px;border-radius:50%;background:#4bd18a}
+.dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#4bd18a;
+}
 .profile-photo{
-  width:126px;height:126px;border-radius:50%;object-fit:cover;
-  border:4px solid var(--gold);background:#fff;
+  width:118px;height:118px;
+  border-radius:50%;object-fit:cover;
+  object-position:center;
+  border:4px solid var(--gold);
+  background:white;display:block;
+  margin:0 auto 13px;
+}
+h1{
+  font-size:27px;margin:0 0 6px;
+  letter-spacing:.2px;
+}
+.role{
+  font-size:13px;color:var(--gold);
+  margin-bottom:14px;
+}
+.pru-logo{
+  width:130px;height:42px;
+  object-fit:contain;background:white;
+  border-radius:7px;padding:5px;
   display:block;margin:0 auto 15px;
 }
-h1{font-size:27px;margin:0 0 6px;letter-spacing:.2px}
-.role{font-size:13px;color:#d5ad62;margin-bottom:15px}
-.pru-logo{
-  width:130px;height:42px;object-fit:contain;background:white;
-  border-radius:7px;padding:5px;margin:0 auto 15px;
-}
 .whatsapp{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  background:#20a663;color:white;padding:12px 22px;
-  border-radius:30px;font-weight:bold;font-size:13px;
+  display:inline-flex;align-items:center;
+  justify-content:center;gap:8px;
+  background:#20a663;color:white;
+  padding:12px 22px;border-radius:30px;
+  font-weight:bold;font-size:13px;
+  transition:.2s;
 }
-.social-title{font-size:11px;color:#c7cbd4;margin:20px 0 9px}
-.socials{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+.whatsapp:hover{filter:brightness(.92)}
+.intro{
+  font-size:12px;line-height:1.65;
+  color:#d7dce6;margin:17px auto 0;
+  max-width:310px;
+}
+
+/* SOCIAL MEDIA */
+.social-title{
+  font-size:10px;color:#c7cbd4;
+  margin:18px 0 10px;
+  letter-spacing:1px;
+}
+.socials{
+  display:flex;justify-content:center;
+  gap:10px;flex-wrap:wrap;
+}
 .socials a{
-  border:1px solid #59647b;border-radius:20px;
-  padding:7px 12px;font-size:11px;color:white;
+  display:flex;align-items:center;
+  justify-content:center;gap:8px;
+  min-width:125px;padding:10px 15px;
+  border:1px solid #59647b;
+  border-radius:30px;color:white;
+  font-size:12px;font-weight:600;
+  background:var(--navy2);
+  transition:.2s;
 }
-.intro{font-size:12px;line-height:1.6;color:#d7dce6;margin:18px auto 0;max-width:320px}
-section{padding:25px 18px}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.section-title h2{font-size:19px;color:var(--navy);margin:0}
-.section-title span{font-size:10px;color:var(--muted)}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.socials a:hover{
+  background:var(--gold);
+  color:var(--navy);
+  border-color:var(--gold);
+}
+.socials svg{
+  width:18px;height:18px;
+  fill:currentColor;flex-shrink:0;
+}
+
+/* SECTIONS */
+section{padding:24px 17px}
+.section-title{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:14px;
+}
+.section-title h2{
+  font-size:18px;color:var(--navy);margin:0;
+}
+.section-title span{
+  font-size:10px;color:var(--muted);
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:9px;
+}
 .product{
-  position:relative;background:white;border:1px solid var(--border);
-  border-radius:12px;padding:15px 13px;min-height:105px;
-  cursor:pointer;transition:.2s;
+  position:relative;background:white;
+  border:1px solid var(--border);
+  border-radius:11px;padding:14px 12px;
+  min-height:100px;cursor:pointer;
+  transition:.2s;
 }
-.product.selected{border:2px solid var(--gold);background:#fffaf0}
+.product.selected{
+  border:2px solid var(--gold);
+  background:#fffaf0;
+}
 .product .tag{
-  position:absolute;right:9px;top:8px;font-size:9px;
-  color:#9a702b;background:#f8edda;padding:4px 7px;border-radius:20px;
+  position:absolute;right:8px;top:8px;
+  font-size:9px;color:#9a702b;
+  background:#f8edda;padding:4px 7px;
+  border-radius:20px;
 }
-.product strong{display:block;color:var(--navy);font-size:13px;margin:7px 0}
-.product p{font-size:11px;color:#777;margin:0;line-height:1.5}
 .product .symbol{font-size:21px}
-.hint{text-align:center;color:#858b99;font-size:10px;margin:12px 0 0}
+.product strong{
+  display:block;color:var(--navy);
+  font-size:13px;margin:7px 0 5px;
+}
+.product p{
+  font-size:11px;color:#777;
+  margin:0;line-height:1.5;
+}
+.hint{
+  text-align:center;color:#858b99;
+  font-size:10px;margin:12px 0 0;
+}
+
+/* FORM */
 .form-card{
   background:white;border:1px solid var(--border);
-  border-radius:14px;padding:19px 16px;
+  border-radius:13px;padding:19px 15px;
 }
-.form-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
-.form-head h2{font-size:19px;color:var(--navy);margin:0}
-.progress-label{font-size:10px;color:var(--green);font-weight:bold}
-.progress{height:5px;background:#eee;border-radius:10px;margin:12px 0 15px;overflow:hidden}
-.progress-bar{height:100%;width:0;background:var(--gold);transition:.2s}
-.form-desc{font-size:11px;line-height:1.5;color:#777;margin-bottom:17px}
-label{display:block;font-size:11px;font-weight:bold;color:#30394c;margin:13px 0 6px}
+.form-head{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:7px;
+}
+.form-head h2{
+  font-size:19px;color:var(--navy);margin:0;
+}
+.progress-label{
+  font-size:10px;color:var(--green);
+  font-weight:bold;
+}
+.progress{
+  height:5px;background:#eee;
+  border-radius:10px;margin:12px 0 15px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:100%;width:0;
+  background:var(--gold);transition:.2s;
+}
+.form-desc{
+  font-size:11px;line-height:1.5;
+  color:#777;margin-bottom:16px;
+}
+label{
+  display:block;font-size:11px;
+  font-weight:bold;color:#30394c;
+  margin:13px 0 6px;
+}
 input,select,textarea{
-  width:100%;padding:12px 11px;border:1px solid #dedede;
-  border-radius:8px;background:#fff;font-size:13px;color:#252b39;
-  outline:none;font-family:inherit;
+  width:100%;padding:12px 11px;
+  border:1px solid #dedede;
+  border-radius:8px;background:white;
+  font-size:13px;color:#252b39;
+  outline:none;
 }
-input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--gold);
+}
 textarea{min-height:75px;resize:vertical}
-.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.toggle-row{display:flex;gap:8px;margin:12px 0 17px}
+.field-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.toggle-row{
+  display:flex;gap:8px;margin:12px 0 17px;
+}
 .toggle{
-  flex:1;padding:11px 8px;border:1px solid var(--border);
-  background:white;border-radius:8px;font-size:12px;font-weight:bold;
+  flex:1;padding:11px 8px;
+  border:1px solid var(--border);
+  background:white;border-radius:8px;
+  font-size:12px;font-weight:bold;
   color:var(--navy);cursor:pointer;
 }
-.toggle.active{background:var(--navy);color:white;border-color:var(--navy)}
+.toggle.active{
+  background:var(--navy);
+  color:white;border-color:var(--navy);
+}
 .child-fields{display:none}
 .child-fields.show{display:block}
-.consent{display:flex;align-items:flex-start;gap:8px;font-size:10px;color:#777;line-height:1.5;margin:16px 0}
-.consent input{width:15px;height:15px;margin:0;flex-shrink:0}
+.consent{
+  display:flex;align-items:flex-start;
+  gap:8px;font-size:10px;color:#777;
+  line-height:1.5;margin:16px 0;
+}
+.consent input{
+  width:15px;height:15px;
+  margin:0;flex-shrink:0;
+}
 .submit{
-  width:100%;border:0;border-radius:9px;padding:14px;
-  background:var(--gold);color:var(--navy);font-weight:bold;
+  width:100%;border:0;border-radius:9px;
+  padding:14px;background:var(--gold);
+  color:var(--navy);font-weight:bold;
   font-size:13px;cursor:pointer;
 }
 .submit:hover{filter:brightness(.96)}
+
+/* CONTACT */
 .contact{
-  background:var(--navy);color:white;text-align:center;
-  padding:23px 18px;
+  background:var(--navy);color:white;
+  text-align:center;padding:25px 18px;
 }
 .contact h2{font-size:18px;margin:0 0 8px}
-.contact p{font-size:11px;color:#d1d7e2;line-height:1.5}
-.contact .mg-logo{width:105px;height:58px;object-fit:contain;background:white;border-radius:7px;padding:5px;margin-top:12px}
-footer{text-align:center;padding:17px;font-size:10px;color:#888}
+.contact p{
+  font-size:11px;color:#d1d7e2;
+  line-height:1.5;margin-bottom:16px;
+}
+.mg-logo{
+  width:105px;height:58px;
+  object-fit:contain;background:white;
+  border-radius:7px;padding:5px;
+  margin-top:17px;
+}
+footer{
+  text-align:center;padding:17px;
+  font-size:10px;color:#888;line-height:1.7;
+}
+
+/* BOTTOM NAV */
 .bottom-nav{
-  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
-  width:min(100%,480px);display:grid;grid-template-columns:repeat(4,1fr);
+  position:fixed;bottom:0;left:50%;
+  transform:translateX(-50%);
+  width:min(100%,480px);
+  display:grid;grid-template-columns:repeat(4,1fr);
   background:white;border-top:1px solid var(--border);
-  padding:9px 5px max(9px,env(safe-area-inset-bottom));z-index:10;
+  padding:9px 5px max(9px,env(safe-area-inset-bottom));
+  z-index:10;
+  box-shadow:0 -4px 16px rgba(0,0,0,.05);
 }
 .bottom-nav a,.bottom-nav button{
-  border:0;background:none;text-align:center;color:#777;
-  font-size:10px;cursor:pointer;padding:4px;
+  border:0;background:none;text-align:center;
+  color:#777;font-size:10px;
+  cursor:pointer;padding:4px;
 }
-.bottom-nav .nav-icon{display:block;font-size:18px;margin-bottom:4px}
-.bottom-nav a.active{color:var(--navy);font-weight:bold}
+.bottom-nav .nav-icon{
+  display:block;font-size:18px;margin-bottom:4px;
+}
+.bottom-nav a.active{
+  color:var(--navy);font-weight:bold;
+}
+
 @media(min-width:600px){
   body{padding:25px 0}
-  .container{border-radius:16px;overflow:hidden;box-shadow:0 8px 40px #0001}
-  .bottom-nav{bottom:25px;border-radius:0 0 16px 16px}
+  .container{
+    border-radius:16px;
+    box-shadow:0 8px 40px #0001;
+  }
+  .bottom-nav{
+    bottom:25px;border-radius:0 0 16px 16px;
+  }
+}
+@media(max-width:360px){
+  .products{grid-template-columns:1fr}
+  .field-grid{grid-template-columns:1fr}
+  .socials a{min-width:115px}
 }
 </style>
 </head>
+
 <body>
 <div class="container">
 
+<!-- PROFIL AMY -->
 <header id="utama">
-  <div class="online"><span class="dot"></span> Sedia Membantu (Online)</div>
+  <div class="online">
+    <span class="dot"></span>
+    Sedia Membantu (Online)
+  </div>
 
-  <img class="profile-photo" src="./amy-diana.jpg" alt="Amy Diana - Takaful Consultant">
+  <img class="profile-photo"
+       src="./amy-diana.jpg"
+       alt="Amy Diana - Takaful Consultant">
 
   <h1>Amy Diana</h1>
   <div class="role">Takaful Consultant</div>
 
-  <img class="pru-logo" src="./prudential-bsn.png" alt="Prudential BSN Takaful">
+  <img class="pru-logo"
+       src="./prudential-bsn.png"
+       alt="Prudential BSN Takaful">
 
-  <a class="whatsapp" href="https://wa.me/60163713510" target="_blank">
-    <span>☏</span> WhatsApp Amy
+  <a class="whatsapp"
+     href="https://wa.me/60163713510"
+     target="_blank" rel="noopener">
+    ☎ WhatsApp Amy
   </a>
 
-  <div class="social-title">Media Sosial</div>
+  <div class="social-title">IKUTI MEDIA SOSIAL AMY</div>
+
   <div class="socials">
-    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+    <a href="https://www.tiktok.com/@emid_ed?_r=1&_t=ZS-9BDyqyTOb3f"
+       target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-label="TikTok">
+        <path d="M19.6 7.2a6.8 6.8 0 0 1-4.1-1.4v9.1a6.1 6.1 0 1 1-6.1-6.1c.4 0 .8 0 1.2.1v3.3a2.9 2.9 0 1 0 1.7 2.7V2.5h3.2c.2 2.4 1.8 4.4 4.1 4.9v3.2z"/>
+      </svg>
+      TikTok
+    </a>
+
+    <a href="https://www.instagram.com/emidiana?mdxt=MW91cm9haWVkMXVkMw=="
+       target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-label="Instagram">
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
+      </svg>
+      Instagram
+    </a>
   </div>
 
   <p class="intro">
-    Sedia membantu anda mendapatkan konsultasi dan cadangan
-    perlindungan takaful mengikut keperluan anda.
+    Dengan 16 tahun pengalaman dalam industri takaful
+    dan lebih 600 pelanggan, Amy sedia membantu anda
+    mencari perlindungan mengikut keperluan.
   </p>
 </header>
 
+<!-- PRODUK -->
 <section id="produk">
   <div class="section-title">
     <h2>Pilihan Perlindungan</h2>
@@ -179,55 +372,82 @@ footer{text-align:center;padding:17px;font-size:10px;color:#888}
   </div>
 
   <div class="products">
-    <div class="product" data-product="Medical Card" onclick="chooseProduct(this)">
+
+    <div class="product" data-product="Medical Card"
+         onclick="chooseProduct(this)">
       <span class="tag">Pilihan</span>
       <div class="symbol">🏥</div>
       <strong>Medical Card</strong>
       <p>Anugerah Max & Asas 360</p>
     </div>
 
-    <div class="product" data-product="Hibah" onclick="chooseProduct(this)">
+    <div class="product" data-product="Hibah"
+         onclick="chooseProduct(this)">
       <div class="symbol">🛡️</div>
       <strong>Hibah</strong>
       <p>Warisan Gold</p>
     </div>
 
-    <div class="product" data-product="Critical Illness" onclick="chooseProduct(this)">
+    <div class="product" data-product="Critical Illness"
+         onclick="chooseProduct(this)">
       <div class="symbol">❤️</div>
       <strong>Critical Illness</strong>
       <p>Critical Care</p>
     </div>
 
-    <div class="product" data-product="GIO Plan" onclick="chooseProduct(this)">
+    <div class="product" data-product="GIO Plan"
+         onclick="chooseProduct(this)">
       <div class="symbol">📋</div>
       <strong>GIO Plan</strong>
       <p>PRUBSN Aspirasi</p>
     </div>
+
   </div>
-  <p class="hint">Pilih satu atau lebih perlindungan yang anda ingin ketahui.</p>
+
+  <p class="hint">
+    Pilih satu atau lebih perlindungan yang anda ingin ketahui.
+  </p>
 </section>
 
+<!-- BORANG -->
 <section id="semak">
   <div class="form-card">
+
     <div class="form-head">
       <h2>Semak Kelayakan</h2>
       <span class="progress-label" id="progressText">0% Selesai</span>
     </div>
-    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <div class="form-desc">
-      Isi butiran di bawah untuk mendapatkan konsultasi dan sebut harga melalui WhatsApp.
+      Lengkapkan maklumat di bawah untuk mendapatkan
+      konsultasi dan cadangan perlindungan.
     </div>
 
     <form id="quoteForm">
+
       <label>Jenis Permohonan *</label>
+
       <div class="toggle-row">
-        <button class="toggle active" type="button" id="adultBtn" onclick="setType('adult')">Dewasa</button>
-        <button class="toggle" type="button" id="childBtn" onclick="setType('child')">Anak bawah 18 tahun</button>
+        <button class="toggle active" type="button"
+                id="adultBtn" onclick="setType('adult')">
+          Dewasa
+        </button>
+        <button class="toggle" type="button"
+                id="childBtn" onclick="setType('child')">
+          Anak bawah 18 tahun
+        </button>
       </div>
 
+      <!-- DEWASA -->
       <div id="adultFields">
+
         <label>Nama Penuh *</label>
-        <input id="name" type="text" placeholder="Contoh: Ahmad bin Ali" required>
+        <input id="name" type="text"
+               placeholder="Contoh: Ahmad bin Ali" required>
 
         <div class="field-grid">
           <div>
@@ -246,28 +466,34 @@ footer{text-align:center;padding:17px;font-size:10px;color:#888}
         </div>
 
         <label>Pekerjaan *</label>
-        <input id="occupation" type="text" placeholder="Contoh: Eksekutif" required>
+        <input id="occupation" type="text"
+               placeholder="Contoh: Eksekutif" required>
       </div>
 
+      <!-- ANAK -->
       <div class="child-fields" id="childFields">
+
         <label>Nama Anak *</label>
-        <input id="childName" type="text" placeholder="Nama penuh anak">
+        <input id="childName" type="text"
+               placeholder="Nama penuh anak">
 
         <label>Tarikh Lahir Anak *</label>
         <input id="childDob" type="date">
 
         <p style="font-size:11px;color:#777;line-height:1.5">
-          Maklumat di bawah adalah maklumat ibu, bapa atau penjaga.
+          Maklumat berikut adalah maklumat ibu, bapa atau penjaga.
         </p>
 
         <label>Nama Ibu / Bapa / Penjaga *</label>
-        <input id="parentName" type="text" placeholder="Nama penuh penjaga">
+        <input id="parentName" type="text"
+               placeholder="Nama penuh penjaga">
 
         <label>Tarikh Lahir Ibu / Bapa / Penjaga *</label>
         <input id="parentDob" type="date">
 
         <label>Pekerjaan Ibu / Bapa / Penjaga *</label>
-        <input id="parentOccupation" type="text" placeholder="Contoh: Guru">
+        <input id="parentOccupation" type="text"
+               placeholder="Contoh: Guru">
 
         <label>Status Merokok *</label>
         <select id="parentSmoking">
@@ -276,13 +502,17 @@ footer{text-align:center;padding:17px;font-size:10px;color:#888}
           <option>Merokok</option>
           <option>Bekas perokok</option>
         </select>
+
       </div>
 
+      <!-- MAKLUMAT HUBUNGAN -->
       <label>Nombor Telefon untuk Dihubungi *</label>
-      <input id="phone" type="tel" placeholder="Contoh: 0123456789" required>
+      <input id="phone" type="tel"
+             placeholder="Contoh: 0123456789" required>
 
       <label>Lokasi *</label>
-      <input id="location" type="text" placeholder="Contoh: Shah Alam" required>
+      <input id="location" type="text"
+             placeholder="Contoh: Shah Alam" required>
 
       <label>Pilihan Perlindungan *</label>
       <select id="protection" required>
@@ -296,140 +526,202 @@ footer{text-align:center;padding:17px;font-size:10px;color:#888}
       </select>
 
       <label>Nota Tambahan (Pilihan)</label>
-      <textarea id="note" placeholder="Nyatakan sebarang pertanyaan atau keperluan anda..."></textarea>
+      <textarea id="note"
+                placeholder="Nyatakan pertanyaan atau keperluan anda..."></textarea>
 
       <label class="consent">
         <input type="checkbox" id="consent" required>
-        <span>Saya bersetuju maklumat ini digunakan untuk tujuan konsultasi dan dihubungi oleh Amy Diana.</span>
+        <span>
+          Saya bersetuju maklumat ini digunakan untuk tujuan
+          konsultasi dan dihubungi oleh Amy Diana.
+        </span>
       </label>
 
-      <button class="submit" type="submit">Hantar ke WhatsApp →</button>
+      <button class="submit" type="submit">
+        Hantar ke WhatsApp →
+      </button>
+
     </form>
   </div>
 </section>
 
+<!-- HUBUNGI -->
 <div class="contact" id="hubungi">
   <h2>Perlukan Bantuan?</h2>
-  <p>Hubungi Amy Diana untuk pertanyaan dan konsultasi lanjut.</p>
-  <a class="whatsapp" href="https://wa.me/60163713510" target="_blank">WhatsApp: 016 371 3510</a>
+  <p>
+    Hubungi Amy Diana untuk pertanyaan dan
+    konsultasi perlindungan takaful.
+  </p>
+
+  <a class="whatsapp"
+     href="https://wa.me/60163713510"
+     target="_blank" rel="noopener">
+    WhatsApp: 016 371 3510
+  </a>
+
   <br>
-  <img class="mg-logo" src="./muqmeen-group.png" alt="Muqmeen Group">
+
+  <img class="mg-logo"
+       src="./muqmeen-group.png"
+       alt="Muqmeen Group">
 </div>
 
 <footer>
   © 2026 Amy Diana. Takaful Consultant.<br>
   Perlindungan tertakluk kepada terma dan syarat pengendali takaful.
 </footer>
+
 </div>
 
+<!-- NAVIGASI BAWAH -->
 <nav class="bottom-nav">
-  <a href="#utama" class="active"><span class="nav-icon">⌂</span>Utama</a>
-  <a href="#produk"><span class="nav-icon">▦</span>Produk</a>
-  <a href="#semak"><span class="nav-icon">☷</span>Semak</a>
-  <button onclick="sharePage()"><span class="nav-icon">↗</span>Kongsi</button>
+  <a href="#utama" class="active">
+    <span class="nav-icon">⌂</span>Utama
+  </a>
+  <a href="#produk">
+    <span class="nav-icon">▦</span>Produk
+  </a>
+  <a href="#semak">
+    <span class="nav-icon">☷</span>Semak
+  </a>
+  <button type="button" onclick="sharePage()">
+    <span class="nav-icon">↗</span>Kongsi
+  </button>
 </nav>
 
 <script>
-let applicationType = "adult";
-let selectedProducts = [];
+let applicationType="adult";
+let selectedProducts=[];
 
 function chooseProduct(card){
-  const product = card.dataset.product;
+  const product=card.dataset.product;
   card.classList.toggle("selected");
 
   if(selectedProducts.includes(product)){
-    selectedProducts = selectedProducts.filter(item => item !== product);
-  } else {
+    selectedProducts=selectedProducts.filter(x=>x!==product);
+  }else{
     selectedProducts.push(product);
   }
 
-  const protection = document.getElementById("protection");
-  if(selectedProducts.length === 1){
-    const map = {
-      "Medical Card":"Medical Card - Anugerah Max",
-      "Hibah":"Hibah - Warisan Gold",
-      "Critical Illness":"Critical Illness - Critical Care",
-      "GIO Plan":"GIO Plan - PRUBSN Aspirasi"
-    };
-    protection.value = map[selectedProducts[0]];
-  } else if(selectedProducts.length > 1){
-    protection.value = "Ingin konsultasi semua pilihan";
+  const map={
+    "Medical Card":"Medical Card - Anugerah Max",
+    "Hibah":"Hibah - Warisan Gold",
+    "Critical Illness":"Critical Illness - Critical Care",
+    "GIO Plan":"GIO Plan - PRUBSN Aspirasi"
+  };
+
+  const protection=document.getElementById("protection");
+
+  if(selectedProducts.length===1){
+    protection.value=map[selectedProducts[0]];
+  }else if(selectedProducts.length>1){
+    protection.value="Ingin konsultasi semua pilihan";
+  }else{
+    protection.value="";
   }
 }
 
 function setType(type){
-  applicationType = type;
-  const adult = type === "adult";
+  applicationType=type;
+  const adult=type==="adult";
 
-  document.getElementById("adultFields").style.display = adult ? "block" : "none";
-  document.getElementById("childFields").classList.toggle("show",!adult);
-  document.getElementById("adultBtn").classList.toggle("active",adult);
-  document.getElementById("childBtn").classList.toggle("active",!adult);
+  document.getElementById("adultFields").style.display=
+    adult?"block":"none";
+
+  document.getElementById("childFields").classList.toggle(
+    "show",!adult
+  );
+
+  document.getElementById("adultBtn").classList.toggle(
+    "active",adult
+  );
+
+  document.getElementById("childBtn").classList.toggle(
+    "active",!adult
+  );
 
   ["name","dob","smoking","occupation"].forEach(id=>{
-    document.getElementById(id).required = adult;
+    document.getElementById(id).required=adult;
   });
 
-  ["childName","childDob","parentName","parentDob","parentOccupation","parentSmoking"].forEach(id=>{
-    document.getElementById(id).required = !adult;
+  ["childName","childDob","parentName","parentDob",
+   "parentOccupation","parentSmoking"].forEach(id=>{
+    document.getElementById(id).required=!adult;
   });
 
   updateProgress();
 }
 
 function updateProgress(){
-  const ids = applicationType === "adult"
-    ? ["name","dob","smoking","occupation","phone","location","protection"]
-    : ["childName","childDob","parentName","parentDob","parentOccupation","parentSmoking","phone","location","protection"];
+  const ids=applicationType==="adult"
+    ?["name","dob","smoking","occupation","phone","location","protection"]
+    :["childName","childDob","parentName","parentDob",
+      "parentOccupation","parentSmoking","phone","location","protection"];
 
-  const filled = ids.filter(id=>document.getElementById(id).value.trim() !== "").length;
-  const percentage = Math.round(filled / ids.length * 100);
+  const filled=ids.filter(id=>
+    document.getElementById(id).value.trim()!==""
+  ).length;
 
-  document.getElementById("progressText").textContent = percentage + "% Selesai";
-  document.getElementById("progressBar").style.width = percentage + "%";
+  const percentage=Math.round(filled/ids.length*100);
+
+  document.getElementById("progressText").textContent=
+    percentage+"% Selesai";
+
+  document.getElementById("progressBar").style.width=
+    percentage+"%";
 }
 
-document.querySelectorAll("#quoteForm input,#quoteForm select").forEach(el=>{
+document.querySelectorAll(
+  "#quoteForm input,#quoteForm select"
+).forEach(el=>{
   el.addEventListener("input",updateProgress);
   el.addEventListener("change",updateProgress);
 });
 
-document.getElementById("quoteForm").addEventListener("submit",function(e){
-  e.preventDefault();
+document.getElementById("quoteForm").addEventListener(
+  "submit",function(e){
+    e.preventDefault();
 
-  const get = id => document.getElementById(id).value.trim();
-  const protection = get("protection");
-  let message = "Assalamualaikum Amy Diana. Saya ingin mendapatkan konsultasi takaful.\n\n";
+    const get=id=>document.getElementById(id).value.trim();
 
-  if(applicationType === "adult"){
-    message += "*PERMOHONAN DEWASA*\n";
-    message += "Nama: "+get("name")+"\n";
-    message += "Tarikh Lahir: "+get("dob")+"\n";
-    message += "Pekerjaan: "+get("occupation")+"\n";
-    message += "Status Merokok: "+get("smoking")+"\n";
-  } else {
-    message += "*PERMOHONAN ANAK BAWAH 18 TAHUN*\n";
-    message += "Nama Anak: "+get("childName")+"\n";
-    message += "Tarikh Lahir Anak: "+get("childDob")+"\n";
-    message += "Nama Penjaga: "+get("parentName")+"\n";
-    message += "Tarikh Lahir Penjaga: "+get("parentDob")+"\n";
-    message += "Pekerjaan Penjaga: "+get("parentOccupation")+"\n";
-    message += "Status Merokok Penjaga: "+get("parentSmoking")+"\n";
+    let message=
+      "Assalamualaikum Amy Diana. Saya ingin mendapatkan konsultasi takaful.\n\n";
+
+    if(applicationType==="adult"){
+      message+="*PERMOHONAN DEWASA*\n";
+      message+="Nama: "+get("name")+"\n";
+      message+="Tarikh Lahir: "+get("dob")+"\n";
+      message+="Pekerjaan: "+get("occupation")+"\n";
+      message+="Status Merokok: "+get("smoking")+"\n";
+    }else{
+      message+="*PERMOHONAN ANAK BAWAH 18 TAHUN*\n";
+      message+="Nama Anak: "+get("childName")+"\n";
+      message+="Tarikh Lahir Anak: "+get("childDob")+"\n";
+      message+="Nama Penjaga: "+get("parentName")+"\n";
+      message+="Tarikh Lahir Penjaga: "+get("parentDob")+"\n";
+      message+="Pekerjaan Penjaga: "+get("parentOccupation")+"\n";
+      message+="Status Merokok Penjaga: "+get("parentSmoking")+"\n";
+    }
+
+    message+="Telefon: "+get("phone")+"\n";
+    message+="Lokasi: "+get("location")+"\n";
+    message+="Pilihan Perlindungan: "+get("protection")+"\n";
+
+    if(get("note")){
+      message+="Nota: "+get("note")+"\n";
+    }
+
+    message+="\nTerima kasih.";
+
+    const url="https://wa.me/60163713510?text="+
+      encodeURIComponent(message);
+
+    window.open(url,"_blank");
   }
-
-  message += "Telefon: "+get("phone")+"\n";
-  message += "Lokasi: "+get("location")+"\n";
-  message += "Pilihan Perlindungan: "+protection+"\n";
-
-  if(get("note")) message += "Nota: "+get("note")+"\n";
-
-  message += "\nTerima kasih.";
-
-  window.open("https://wa.me/60163713510?text="+encodeURIComponent(message),"_blank");
-});
+);
 
 async function sharePage(){
-  const data = {
+  const data={
     title:"Amy Diana | Takaful Consultant",
     text:"Hubungi Amy Diana untuk konsultasi takaful.",
     url:window.location.href
@@ -437,30 +729,41 @@ async function sharePage(){
 
   if(navigator.share){
     try{await navigator.share(data)}catch(e){}
-  } else if(navigator.clipboard){
+  }else if(navigator.clipboard){
     try{
       await navigator.clipboard.writeText(window.location.href);
       alert("Link website berjaya disalin!");
     }catch(e){
       prompt("Salin link ini:",window.location.href);
     }
-  } else {
+  }else{
     prompt("Salin link ini:",window.location.href);
   }
 }
 
-const sections = ["utama","produk","semak"];
-const navLinks = document.querySelectorAll(".bottom-nav a");
+/* NAVIGATION ACTIVE STATE */
+const sections=["utama","produk","semak"];
+const navLinks=document.querySelectorAll(".bottom-nav a");
+
 window.addEventListener("scroll",()=>{
-  let current = "utama";
+  let current="utama";
+
   sections.forEach(id=>{
-    const section = document.getElementById(id);
-    if(section && window.scrollY >= section.offsetTop - 150) current = id;
+    const section=document.getElementById(id);
+
+    if(section&&window.scrollY>=section.offsetTop-150){
+      current=id;
+    }
   });
+
   navLinks.forEach(link=>{
-    link.classList.toggle("active",link.getAttribute("href")==="#"+current);
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href")==="#"+current
+    );
   });
 });
 </script>
+
 </body>
 </html>
