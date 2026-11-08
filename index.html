@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b35">
+<title>Amy Diana | Takaful Consultant</title>
+<meta name="description" content="Dapatkan konsultasi dan sebut harga pelan perlindungan takaful bersama Amy Diana.">
+<style>
+:root {
+  --navy:#101b35;
+  --navy2:#192746;
+  --gold:#d5ad62;
+  --cream:#f7f5f0;
+  --white:#fff;
+  --muted:#858b99;
+  --border:#e8e5de;
+  --green:#168b55;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#eeece7;color:#20283a;
+  font-family:Arial,Helvetica,sans-serif;
+  padding-bottom:85px;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(100%,480px);margin:auto;background:var(--cream);min-height:100vh}
+header{
+  background:var(--navy);color:white;padding:22px 22px 28px;
+  text-align:center;position:relative;
+}
+.online{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;color:#d9e5d8;background:#233754;
+  border-radius:30px;padding:7px 12px;margin-bottom:20px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#4bd18a}
+.profile-photo{
+  width:126px;height:126px;border-radius:50%;object-fit:cover;
+  border:4px solid var(--gold);background:#fff;
+  display:block;margin:0 auto 15px;
+}
+h1{font-size:27px;margin:0 0 6px;letter-spacing:.2px}
+.role{font-size:13px;color:#d5ad62;margin-bottom:15px}
+.pru-logo{
+  width:130px;height:42px;object-fit:contain;background:white;
+  border-radius:7px;padding:5px;margin:0 auto 15px;
+}
+.whatsapp{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:#20a663;color:white;padding:12px 22px;
+  border-radius:30px;font-weight:bold;font-size:13px;
+}
+.social-title{font-size:11px;color:#c7cbd4;margin:20px 0 9px}
+.socials{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+.socials a{
+  border:1px solid #59647b;border-radius:20px;
+  padding:7px 12px;font-size:11px;color:white;
+}
+.intro{font-size:12px;line-height:1.6;color:#d7dce6;margin:18px auto 0;max-width:320px}
+section{padding:25px 18px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.section-title h2{font-size:19px;color:var(--navy);margin:0}
+.section-title span{font-size:10px;color:var(--muted)}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.product{
+  position:relative;background:white;border:1px solid var(--border);
+  border-radius:12px;padding:15px 13px;min-height:105px;
+  cursor:pointer;transition:.2s;
+}
+.product.selected{border:2px solid var(--gold);background:#fffaf0}
+.product .tag{
+  position:absolute;right:9px;top:8px;font-size:9px;
+  color:#9a702b;background:#f8edda;padding:4px 7px;border-radius:20px;
+}
+.product strong{display:block;color:var(--navy);font-size:13px;margin:7px 0}
+.product p{font-size:11px;color:#777;margin:0;line-height:1.5}
+.product .symbol{font-size:21px}
+.hint{text-align:center;color:#858b99;font-size:10px;margin:12px 0 0}
+.form-card{
+  background:white;border:1px solid var(--border);
+  border-radius:14px;padding:19px 16px;
+}
+.form-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.form-head h2{font-size:19px;color:var(--navy);margin:0}
+.progress-label{font-size:10px;color:var(--green);font-weight:bold}
+.progress{height:5px;background:#eee;border-radius:10px;margin:12px 0 15px;overflow:hidden}
+.progress-bar{height:100%;width:0;background:var(--gold);transition:.2s}
+.form-desc{font-size:11px;line-height:1.5;color:#777;margin-bottom:17px}
+label{display:block;font-size:11px;font-weight:bold;color:#30394c;margin:13px 0 6px}
+input,select,textarea{
+  width:100%;padding:12px 11px;border:1px solid #dedede;
+  border-radius:8px;background:#fff;font-size:13px;color:#252b39;
+  outline:none;font-family:inherit;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+textarea{min-height:75px;resize:vertical}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.toggle-row{display:flex;gap:8px;margin:12px 0 17px}
+.toggle{
+  flex:1;padding:11px 8px;border:1px solid var(--border);
+  background:white;border-radius:8px;font-size:12px;font-weight:bold;
+  color:var(--navy);cursor:pointer;
+}
+.toggle.active{background:var(--navy);color:white;border-color:var(--navy)}
+.child-fields{display:none}
+.child-fields.show{display:block}
+.consent{display:flex;align-items:flex-start;gap:8px;font-size:10px;color:#777;line-height:1.5;margin:16px 0}
+.consent input{width:15px;height:15px;margin:0;flex-shrink:0}
+.submit{
+  width:100%;border:0;border-radius:9px;padding:14px;
+  background:var(--gold);color:var(--navy);font-weight:bold;
+  font-size:13px;cursor:pointer;
+}
+.submit:hover{filter:brightness(.96)}
+.contact{
+  background:var(--navy);color:white;text-align:center;
+  padding:23px 18px;
+}
+.contact h2{font-size:18px;margin:0 0 8px}
+.contact p{font-size:11px;color:#d1d7e2;line-height:1.5}
+.contact .mg-logo{width:105px;height:58px;object-fit:contain;background:white;border-radius:7px;padding:5px;margin-top:12px}
+footer{text-align:center;padding:17px;font-size:10px;color:#888}
+.bottom-nav{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:min(100%,480px);display:grid;grid-template-columns:repeat(4,1fr);
+  background:white;border-top:1px solid var(--border);
+  padding:9px 5px max(9px,env(safe-area-inset-bottom));z-index:10;
+}
+.bottom-nav a,.bottom-nav button{
+  border:0;background:none;text-align:center;color:#777;
+  font-size:10px;cursor:pointer;padding:4px;
+}
+.bottom-nav .nav-icon{display:block;font-size:18px;margin-bottom:4px}
+.bottom-nav a.active{color:var(--navy);font-weight:bold}
+@media(min-width:600px){
+  body{padding:25px 0}
+  .container{border-radius:16px;overflow:hidden;box-shadow:0 8px 40px #0001}
+  .bottom-nav{bottom:25px;border-radius:0 0 16px 16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header id="utama">
+  <div class="online"><span class="dot"></span> Sedia Membantu (Online)</div>
+
+  <img class="profile-photo" src="./amy-diana.jpg" alt="Amy Diana - Takaful Consultant">
+
+  <h1>Amy Diana</h1>
+  <div class="role">Takaful Consultant</div>
+
+  <img class="pru-logo" src="./prudential-bsn.png" alt="Prudential BSN Takaful">
+
+  <a class="whatsapp" href="https://wa.me/60163713510" target="_blank">
+    <span>☏</span> WhatsApp Amy
+  </a>
+
+  <div class="social-title">Media Sosial</div>
+  <div class="socials">
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+  </div>
+
+  <p class="intro">
+    Sedia membantu anda mendapatkan konsultasi dan cadangan
+    perlindungan takaful mengikut keperluan anda.
+  </p>
+</header>
+
+<section id="produk">
+  <div class="section-title">
+    <h2>Pilihan Perlindungan</h2>
+    <span>Pilih untuk semak</span>
+  </div>
+
+  <div class="products">
+    <div class="product" data-product="Medical Card" onclick="chooseProduct(this)">
+      <span class="tag">Pilihan</span>
+      <div class="symbol">🏥</div>
+      <strong>Medical Card</strong>
+      <p>Anugerah Max & Asas 360</p>
+    </div>
+
+    <div class="product" data-product="Hibah" onclick="chooseProduct(this)">
+      <div class="symbol">🛡️</div>
+      <strong>Hibah</strong>
+      <p>Warisan Gold</p>
+    </div>
+
+    <div class="product" data-product="Critical Illness" onclick="chooseProduct(this)">
+      <div class="symbol">❤️</div>
+      <strong>Critical Illness</strong>
+      <p>Critical Care</p>
+    </div>
+
+    <div class="product" data-product="GIO Plan" onclick="chooseProduct(this)">
+      <div class="symbol">📋</div>
+      <strong>GIO Plan</strong>
+      <p>PRUBSN Aspirasi</p>
+    </div>
+  </div>
+  <p class="hint">Pilih satu atau lebih perlindungan yang anda ingin ketahui.</p>
+</section>
+
+<section id="semak">
+  <div class="form-card">
+    <div class="form-head">
+      <h2>Semak Kelayakan</h2>
+      <span class="progress-label" id="progressText">0% Selesai</span>
+    </div>
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="form-desc">
+      Isi butiran di bawah untuk mendapatkan konsultasi dan sebut harga melalui WhatsApp.
+    </div>
+
+    <form id="quoteForm">
+      <label>Jenis Permohonan *</label>
+      <div class="toggle-row">
+        <button class="toggle active" type="button" id="adultBtn" onclick="setType('adult')">Dewasa</button>
+        <button class="toggle" type="button" id="childBtn" onclick="setType('child')">Anak bawah 18 tahun</button>
+      </div>
+
+      <div id="adultFields">
+        <label>Nama Penuh *</label>
+        <input id="name" type="text" placeholder="Contoh: Ahmad bin Ali" required>
+
+        <div class="field-grid">
+          <div>
+            <label>Tarikh Lahir *</label>
+            <input id="dob" type="date" required>
+          </div>
+          <div>
+            <label>Status Merokok *</label>
+            <select id="smoking" required>
+              <option value="">Pilih</option>
+              <option>Tidak merokok</option>
+              <option>Merokok</option>
+              <option>Bekas perokok</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Pekerjaan *</label>
+        <input id="occupation" type="text" placeholder="Contoh: Eksekutif" required>
+      </div>
+
+      <div class="child-fields" id="childFields">
+        <label>Nama Anak *</label>
+        <input id="childName" type="text" placeholder="Nama penuh anak">
+
+        <label>Tarikh Lahir Anak *</label>
+        <input id="childDob" type="date">
+
+        <p style="font-size:11px;color:#777;line-height:1.5">
+          Maklumat di bawah adalah maklumat ibu, bapa atau penjaga.
+        </p>
+
+        <label>Nama Ibu / Bapa / Penjaga *</label>
+        <input id="parentName" type="text" placeholder="Nama penuh penjaga">
+
+        <label>Tarikh Lahir Ibu / Bapa / Penjaga *</label>
+        <input id="parentDob" type="date">
+
+        <label>Pekerjaan Ibu / Bapa / Penjaga *</label>
+        <input id="parentOccupation" type="text" placeholder="Contoh: Guru">
+
+        <label>Status Merokok *</label>
+        <select id="parentSmoking">
+          <option value="">Pilih</option>
+          <option>Tidak merokok</option>
+          <option>Merokok</option>
+          <option>Bekas perokok</option>
+        </select>
+      </div>
+
+      <label>Nombor Telefon untuk Dihubungi *</label>
+      <input id="phone" type="tel" placeholder="Contoh: 0123456789" required>
+
+      <label>Lokasi *</label>
+      <input id="location" type="text" placeholder="Contoh: Shah Alam" required>
+
+      <label>Pilihan Perlindungan *</label>
+      <select id="protection" required>
+        <option value="">Pilih perlindungan</option>
+        <option>Medical Card - Anugerah Max</option>
+        <option>Medical Card - Asas 360</option>
+        <option>Hibah - Warisan Gold</option>
+        <option>Critical Illness - Critical Care</option>
+        <option>GIO Plan - PRUBSN Aspirasi</option>
+        <option>Ingin konsultasi semua pilihan</option>
+      </select>
+
+      <label>Nota Tambahan (Pilihan)</label>
+      <textarea id="note" placeholder="Nyatakan sebarang pertanyaan atau keperluan anda..."></textarea>
+
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span>Saya bersetuju maklumat ini digunakan untuk tujuan konsultasi dan dihubungi oleh Amy Diana.</span>
+      </label>
+
+      <button class="submit" type="submit">Hantar ke WhatsApp →</button>
+    </form>
+  </div>
+</section>
+
+<div class="contact" id="hubungi">
+  <h2>Perlukan Bantuan?</h2>
+  <p>Hubungi Amy Diana untuk pertanyaan dan konsultasi lanjut.</p>
+  <a class="whatsapp" href="https://wa.me/60163713510" target="_blank">WhatsApp: 016 371 3510</a>
+  <br>
+  <img class="mg-logo" src="./muqmeen-group.png" alt="Muqmeen Group">
+</div>
+
+<footer>
+  © 2026 Amy Diana. Takaful Consultant.<br>
+  Perlindungan tertakluk kepada terma dan syarat pengendali takaful.
+</footer>
+</div>
+
+<nav class="bottom-nav">
+  <a href="#utama" class="active"><span class="nav-icon">⌂</span>Utama</a>
+  <a href="#produk"><span class="nav-icon">▦</span>Produk</a>
+  <a href="#semak"><span class="nav-icon">☷</span>Semak</a>
+  <button onclick="sharePage()"><span class="nav-icon">↗</span>Kongsi</button>
+</nav>
+
+<script>
+let applicationType = "adult";
+let selectedProducts = [];
+
+function chooseProduct(card){
+  const product = card.dataset.product;
+  card.classList.toggle("selected");
+
+  if(selectedProducts.includes(product)){
+    selectedProducts = selectedProducts.filter(item => item !== product);
+  } else {
+    selectedProducts.push(product);
+  }
+
+  const protection = document.getElementById("protection");
+  if(selectedProducts.length === 1){
+    const map = {
+      "Medical Card":"Medical Card - Anugerah Max",
+      "Hibah":"Hibah - Warisan Gold",
+      "Critical Illness":"Critical Illness - Critical Care",
+      "GIO Plan":"GIO Plan - PRUBSN Aspirasi"
+    };
+    protection.value = map[selectedProducts[0]];
+  } else if(selectedProducts.length > 1){
+    protection.value = "Ingin konsultasi semua pilihan";
+  }
+}
+
+function setType(type){
+  applicationType = type;
+  const adult = type === "adult";
+
+  document.getElementById("adultFields").style.display = adult ? "block" : "none";
+  document.getElementById("childFields").classList.toggle("show",!adult);
+  document.getElementById("adultBtn").classList.toggle("active",adult);
+  document.getElementById("childBtn").classList.toggle("active",!adult);
+
+  ["name","dob","smoking","occupation"].forEach(id=>{
+    document.getElementById(id).required = adult;
+  });
+
+  ["childName","childDob","parentName","parentDob","parentOccupation","parentSmoking"].forEach(id=>{
+    document.getElementById(id).required = !adult;
+  });
+
+  updateProgress();
+}
+
+function updateProgress(){
+  const ids = applicationType === "adult"
+    ? ["name","dob","smoking","occupation","phone","location","protection"]
+    : ["childName","childDob","parentName","parentDob","parentOccupation","parentSmoking","phone","location","protection"];
+
+  const filled = ids.filter(id=>document.getElementById(id).value.trim() !== "").length;
+  const percentage = Math.round(filled / ids.length * 100);
+
+  document.getElementById("progressText").textContent = percentage + "% Selesai";
+  document.getElementById("progressBar").style.width = percentage + "%";
+}
+
+document.querySelectorAll("#quoteForm input,#quoteForm select").forEach(el=>{
+  el.addEventListener("input",updateProgress);
+  el.addEventListener("change",updateProgress);
+});
+
+document.getElementById("quoteForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const get = id => document.getElementById(id).value.trim();
+  const protection = get("protection");
+  let message = "Assalamualaikum Amy Diana. Saya ingin mendapatkan konsultasi takaful.\n\n";
+
+  if(applicationType === "adult"){
+    message += "*PERMOHONAN DEWASA*\n";
+    message += "Nama: "+get("name")+"\n";
+    message += "Tarikh Lahir: "+get("dob")+"\n";
+    message += "Pekerjaan: "+get("occupation")+"\n";
+    message += "Status Merokok: "+get("smoking")+"\n";
+  } else {
+    message += "*PERMOHONAN ANAK BAWAH 18 TAHUN*\n";
+    message += "Nama Anak: "+get("childName")+"\n";
+    message += "Tarikh Lahir Anak: "+get("childDob")+"\n";
+    message += "Nama Penjaga: "+get("parentName")+"\n";
+    message += "Tarikh Lahir Penjaga: "+get("parentDob")+"\n";
+    message += "Pekerjaan Penjaga: "+get("parentOccupation")+"\n";
+    message += "Status Merokok Penjaga: "+get("parentSmoking")+"\n";
+  }
+
+  message += "Telefon: "+get("phone")+"\n";
+  message += "Lokasi: "+get("location")+"\n";
+  message += "Pilihan Perlindungan: "+protection+"\n";
+
+  if(get("note")) message += "Nota: "+get("note")+"\n";
+
+  message += "\nTerima kasih.";
+
+  window.open("https://wa.me/60163713510?text="+encodeURIComponent(message),"_blank");
+});
+
+async function sharePage(){
+  const data = {
+    title:"Amy Diana | Takaful Consultant",
+    text:"Hubungi Amy Diana untuk konsultasi takaful.",
+    url:window.location.href
+  };
+
+  if(navigator.share){
+    try{await navigator.share(data)}catch(e){}
+  } else if(navigator.clipboard){
+    try{
+      await navigator.clipboard.writeText(window.location.href);
+      alert("Link website berjaya disalin!");
+    }catch(e){
+      prompt("Salin link ini:",window.location.href);
+    }
+  } else {
+    prompt("Salin link ini:",window.location.href);
+  }
+}
+
+const sections = ["utama","produk","semak"];
+const navLinks = document.querySelectorAll(".bottom-nav a");
+window.addEventListener("scroll",()=>{
+  let current = "utama";
+  sections.forEach(id=>{
+    const section = document.getElementById(id);
+    if(section && window.scrollY >= section.offsetTop - 150) current = id;
+  });
+  navLinks.forEach(link=>{
+    link.classList.toggle("active",link.getAttribute("href")==="#"+current);
+  });
+});
+</script>
+</body>
+</html>
