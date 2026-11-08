@@ -6,306 +6,585 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101b35">
 <title>Amy Diana | Takaful Consultant</title>
-<meta name="description" content="Dapatkan konsultasi takaful bersama Amy Diana. Medical Card, Hibah, Critical Illness dan pelan perlindungan.">
+<meta name="description" content="Konsultasi perlindungan takaful bersama Amy Diana.">
 
 <style>
 :root{
   --navy:#101b35;
   --navy2:#192746;
+  --navy3:#253657;
   --gold:#d5ad62;
+  --gold-light:#f0d59e;
   --cream:#f7f5f0;
   --white:#fff;
   --muted:#858b99;
   --border:#e8e5de;
-  --green:#168b55;
+  --green:#20a663;
+  --shadow:0 10px 30px rgba(16,27,53,.08);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:15px}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:20px;
+}
 body{
-  margin:0;background:#eeece7;color:#20283a;
+  margin:0;
+  background:#eeece7;
+  color:#20283a;
   font-family:Arial,Helvetica,sans-serif;
   padding-bottom:85px;
+  -webkit-font-smoothing:antialiased;
 }
+button,input,select,textarea{font:inherit}
 a{text-decoration:none;color:inherit}
-button,input,select,textarea{font-family:inherit}
+button{ -webkit-tap-highlight-color:transparent; }
 .container{
   width:min(100%,480px);
-  margin:auto;background:var(--cream);
-  min-height:100vh;overflow:hidden;
+  margin:auto;
+  background:var(--cream);
+  min-height:100vh;
+  overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.04);
 }
 
-/* PROFILE */
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes softPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(32,166,99,.25)}
+  50%{box-shadow:0 0 0 7px rgba(32,166,99,0)}
+}
+@keyframes shimmer{
+  0%{background-position:100% 0}
+  100%{background-position:-100% 0}
+}
+@keyframes floatIn{
+  from{opacity:0;transform:scale(.96)}
+  to{opacity:1;transform:scale(1)}
+}
+
+/* HEADER */
 header{
-  background:var(--navy);
-  color:white;text-align:center;
-  padding:22px 20px 26px;
+  background:linear-gradient(155deg,var(--navy),#172746);
+  color:white;
+  text-align:center;
+  padding:25px 20px 29px;
+  position:relative;
+  animation:fadeUp .65s ease both;
 }
 .online{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:11px;color:#d9e5d8;
-  background:#233754;border-radius:30px;
-  padding:7px 12px;margin-bottom:19px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  color:#e1eadf;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:30px;
+  padding:8px 13px;
+  margin-bottom:20px;
 }
 .dot{
-  width:7px;height:7px;border-radius:50%;
+  width:7px;height:7px;
+  border-radius:50%;
   background:#4bd18a;
+  animation:softPulse 2s infinite;
 }
 .profile-photo{
-  width:118px;height:118px;
-  border-radius:50%;object-fit:cover;
+  width:120px;height:120px;
+  border-radius:50%;
+  object-fit:cover;
   object-position:center;
-  border:4px solid var(--gold);
-  background:white;display:block;
-  margin:0 auto 13px;
+  border:3px solid var(--gold);
+  background:#fff;
+  display:block;
+  margin:0 auto 15px;
+  box-shadow:0 7px 25px rgba(0,0,0,.2);
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.profile-photo:hover{
+  transform:scale(1.045);
+  box-shadow:0 10px 30px rgba(213,173,98,.2);
 }
 h1{
-  font-size:27px;margin:0 0 6px;
+  font-size:27px;
   letter-spacing:.2px;
+  margin:0 0 6px;
 }
 .role{
-  font-size:13px;color:var(--gold);
+  font-size:13px;
+  color:var(--gold);
   margin-bottom:14px;
 }
+
+/* LOGOS */
 .pru-logo{
-  width:130px;height:42px;
-  object-fit:contain;background:white;
-  border-radius:7px;padding:5px;
-  display:block;margin:0 auto 15px;
+  display:block;
+  width:155px;
+  height:65px;
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+  border:0;
+  padding:0;
+  margin:10px auto 17px;
+  transition:transform .3s ease;
 }
+.pru-logo:hover{transform:scale(1.04)}
+.mg-logo{
+  display:block;
+  width:125px;
+  height:75px;
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+  border:0;
+  padding:0;
+  margin:19px auto 0;
+  transition:transform .3s ease;
+}
+.mg-logo:hover{transform:scale(1.05)}
+
+/* BUTTONS */
 .whatsapp{
-  display:inline-flex;align-items:center;
-  justify-content:center;gap:8px;
-  background:#20a663;color:white;
-  padding:12px 22px;border-radius:30px;
-  font-weight:bold;font-size:13px;
-  transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  background:var(--green);
+  color:white;
+  padding:13px 24px;
+  border-radius:40px;
+  font-size:14px;
+  font-weight:bold;
+  box-shadow:0 5px 16px rgba(32,166,99,.2);
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+  animation:fadeUp .7s ease .1s both;
 }
-.whatsapp:hover{filter:brightness(.92)}
+.whatsapp:hover{
+  background:#168b55;
+  transform:translateY(-3px);
+  box-shadow:0 9px 22px rgba(32,166,99,.28);
+}
+.whatsapp:active{
+  transform:scale(.96);
+}
+.whatsapp:focus-visible,
+.socials a:focus-visible,
+.submit:focus-visible,
+.toggle:focus-visible,
+.product:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:3px;
+}
 .intro{
-  font-size:12px;line-height:1.65;
-  color:#d7dce6;margin:17px auto 0;
-  max-width:310px;
+  font-size:12px;
+  line-height:1.7;
+  color:#d7dce6;
+  margin:18px auto 0;
+  max-width:315px;
 }
 
-/* SOCIAL MEDIA */
+/* SOCIAL */
 .social-title{
-  font-size:10px;color:#c7cbd4;
-  margin:18px 0 10px;
+  font-size:10px;
+  color:#c7cbd4;
+  margin:20px 0 11px;
   letter-spacing:1px;
 }
 .socials{
-  display:flex;justify-content:center;
-  gap:10px;flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 .socials a{
-  display:flex;align-items:center;
-  justify-content:center;gap:8px;
-  min-width:125px;padding:10px 15px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:125px;
+  padding:10px 15px;
   border:1px solid #59647b;
-  border-radius:30px;color:white;
-  font-size:12px;font-weight:600;
-  background:var(--navy2);
-  transition:.2s;
+  border-radius:30px;
+  color:white;
+  font-size:12px;
+  font-weight:600;
+  background:rgba(255,255,255,.035);
+  transition:all .25s ease;
 }
 .socials a:hover{
   background:var(--gold);
   color:var(--navy);
   border-color:var(--gold);
+  transform:translateY(-3px);
+  box-shadow:0 5px 14px rgba(213,173,98,.16);
 }
+.socials a:active{transform:scale(.95)}
 .socials svg{
-  width:18px;height:18px;
-  fill:currentColor;flex-shrink:0;
+  width:18px;
+  height:18px;
+  fill:currentColor;
+  flex-shrink:0;
 }
 
 /* SECTIONS */
-section{padding:24px 17px}
+section{
+  padding:25px 18px;
+  animation:fadeUp .55s ease both;
+}
 .section-title{
-  display:flex;justify-content:space-between;
-  align-items:center;margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:15px;
 }
 .section-title h2{
-  font-size:18px;color:var(--navy);margin:0;
+  font-size:19px;
+  color:var(--navy);
+  margin:0;
 }
 .section-title span{
-  font-size:10px;color:var(--muted);
+  font-size:10px;
+  color:var(--muted);
 }
 
-/* PRODUCTS */
+/* PRODUCT CARDS */
 .products{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:9px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
 }
 .product{
-  position:relative;background:white;
+  position:relative;
+  background:white;
   border:1px solid var(--border);
-  border-radius:11px;padding:14px 12px;
-  min-height:100px;cursor:pointer;
-  transition:.2s;
+  border-radius:13px;
+  padding:15px 13px;
+  min-height:105px;
+  cursor:pointer;
+  text-align:left;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
 }
+.product:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:var(--shadow);
+}
+.product:active{transform:scale(.97)}
 .product.selected{
   border:2px solid var(--gold);
   background:#fffaf0;
+  box-shadow:0 5px 15px rgba(213,173,98,.13);
 }
 .product .tag{
-  position:absolute;right:8px;top:8px;
-  font-size:9px;color:#9a702b;
-  background:#f8edda;padding:4px 7px;
+  position:absolute;
+  right:8px;top:8px;
+  font-size:9px;
+  color:#9a702b;
+  background:#f8edda;
+  padding:4px 7px;
   border-radius:20px;
 }
-.product .symbol{font-size:21px}
+.product .symbol{
+  display:block;
+  font-size:22px;
+  margin-bottom:7px;
+  transition:transform .25s ease;
+}
+.product:hover .symbol{transform:scale(1.12)}
 .product strong{
-  display:block;color:var(--navy);
-  font-size:13px;margin:7px 0 5px;
+  display:block;
+  color:var(--navy);
+  font-size:13px;
+  margin-bottom:5px;
 }
 .product p{
-  font-size:11px;color:#777;
-  margin:0;line-height:1.5;
+  font-size:11px;
+  color:#777;
+  margin:0;
+  line-height:1.5;
 }
 .hint{
-  text-align:center;color:#858b99;
-  font-size:10px;margin:12px 0 0;
+  text-align:center;
+  color:#858b99;
+  font-size:10px;
+  line-height:1.5;
+  margin:12px 0 0;
 }
 
 /* FORM */
 .form-card{
-  background:white;border:1px solid var(--border);
-  border-radius:13px;padding:19px 15px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:19px 16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.025);
 }
 .form-head{
-  display:flex;justify-content:space-between;
-  align-items:center;margin-bottom:7px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:7px;
 }
 .form-head h2{
-  font-size:19px;color:var(--navy);margin:0;
+  font-size:19px;
+  color:var(--navy);
+  margin:0;
 }
 .progress-label{
-  font-size:10px;color:var(--green);
+  font-size:10px;
+  color:var(--green);
   font-weight:bold;
 }
 .progress{
-  height:5px;background:#eee;
-  border-radius:10px;margin:12px 0 15px;
+  height:5px;
+  background:#eee;
+  border-radius:10px;
+  margin:12px 0 15px;
   overflow:hidden;
 }
 .progress-bar{
-  height:100%;width:0;
-  background:var(--gold);transition:.2s;
+  height:100%;
+  width:0;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transition:width .35s ease;
 }
 .form-desc{
-  font-size:11px;line-height:1.5;
-  color:#777;margin-bottom:16px;
+  font-size:11px;
+  line-height:1.6;
+  color:#777;
+  margin-bottom:16px;
 }
 label{
-  display:block;font-size:11px;
-  font-weight:bold;color:#30394c;
-  margin:13px 0 6px;
+  display:block;
+  font-size:11px;
+  font-weight:bold;
+  color:#30394c;
+  margin:14px 0 7px;
 }
 input,select,textarea{
-  width:100%;padding:12px 11px;
+  width:100%;
+  padding:12px 11px;
   border:1px solid #dedede;
-  border-radius:8px;background:white;
-  font-size:13px;color:#252b39;
+  border-radius:9px;
+  background:#fff;
+  font-size:13px;
+  color:#252b39;
   outline:none;
+  transition:border-color .2s ease,box-shadow .2s ease;
 }
 input:focus,select:focus,textarea:focus{
   border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(213,173,98,.13);
 }
-textarea{min-height:75px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#a3a6ad}
+textarea{min-height:80px;resize:vertical}
 .field-grid{
-  display:grid;grid-template-columns:1fr 1fr;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:10px;
 }
 .toggle-row{
-  display:flex;gap:8px;margin:12px 0 17px;
+  display:flex;
+  gap:9px;
+  margin:12px 0 17px;
 }
 .toggle{
-  flex:1;padding:11px 8px;
+  flex:1;
+  padding:12px 8px;
   border:1px solid var(--border);
-  background:white;border-radius:8px;
-  font-size:12px;font-weight:bold;
-  color:var(--navy);cursor:pointer;
+  background:white;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:bold;
+  color:var(--navy);
+  cursor:pointer;
+  transition:all .25s ease;
 }
+.toggle:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+.toggle:active{transform:scale(.97)}
 .toggle.active{
   background:var(--navy);
-  color:white;border-color:var(--navy);
+  color:white;
+  border-color:var(--navy);
+  box-shadow:0 4px 12px rgba(16,27,53,.15);
 }
 .child-fields{display:none}
-.child-fields.show{display:block}
+.child-fields.show{
+  display:block;
+  animation:fadeUp .3s ease both;
+}
 .consent{
-  display:flex;align-items:flex-start;
-  gap:8px;font-size:10px;color:#777;
-  line-height:1.5;margin:16px 0;
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  font-size:10px;
+  color:#777;
+  line-height:1.55;
+  margin:17px 0;
 }
 .consent input{
-  width:15px;height:15px;
-  margin:0;flex-shrink:0;
+  width:16px;
+  height:16px;
+  margin:0;
+  flex-shrink:0;
+  accent-color:var(--navy);
 }
 .submit{
-  width:100%;border:0;border-radius:9px;
-  padding:14px;background:var(--gold);
-  color:var(--navy);font-weight:bold;
-  font-size:13px;cursor:pointer;
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:15px;
+  background:linear-gradient(110deg,var(--gold),#e8c982,var(--gold));
+  background-size:200% 100%;
+  color:var(--navy);
+  font-weight:bold;
+  font-size:13px;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(213,173,98,.18);
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
 }
-.submit:hover{filter:brightness(.96)}
+.submit:hover{
+  transform:translateY(-3px);
+  box-shadow:0 9px 22px rgba(213,173,98,.3);
+  animation:shimmer 1.2s ease;
+}
+.submit:active{transform:scale(.98)}
 
 /* CONTACT */
 .contact{
-  background:var(--navy);color:white;
-  text-align:center;padding:25px 18px;
+  background:linear-gradient(155deg,var(--navy),#172746);
+  color:white;
+  text-align:center;
+  padding:27px 18px;
 }
-.contact h2{font-size:18px;margin:0 0 8px}
+.contact h2{
+  font-size:19px;
+  margin:0 0 9px;
+}
 .contact p{
-  font-size:11px;color:#d1d7e2;
-  line-height:1.5;margin-bottom:16px;
+  font-size:12px;
+  color:#d1d7e2;
+  line-height:1.6;
+  margin:0 auto 17px;
+  max-width:320px;
 }
-.mg-logo{
-  width:105px;height:58px;
-  object-fit:contain;background:white;
-  border-radius:7px;padding:5px;
-  margin-top:17px;
+.contact .mg-logo{
+  display:block;
+  width:125px;
+  height:75px;
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+  border:0;
+  padding:0;
+  margin:20px auto 0;
 }
 footer{
-  text-align:center;padding:17px;
-  font-size:10px;color:#888;line-height:1.7;
+  text-align:center;
+  padding:18px 15px;
+  font-size:10px;
+  color:#888;
+  line-height:1.7;
 }
 
 /* BOTTOM NAV */
 .bottom-nav{
-  position:fixed;bottom:0;left:50%;
+  position:fixed;
+  bottom:0;
+  left:50%;
   transform:translateX(-50%);
   width:min(100%,480px);
-  display:grid;grid-template-columns:repeat(4,1fr);
-  background:white;border-top:1px solid var(--border);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
   padding:9px 5px max(9px,env(safe-area-inset-bottom));
-  z-index:10;
-  box-shadow:0 -4px 16px rgba(0,0,0,.05);
+  z-index:100;
+  box-shadow:0 -4px 18px rgba(0,0,0,.055);
 }
 .bottom-nav a,.bottom-nav button{
-  border:0;background:none;text-align:center;
-  color:#777;font-size:10px;
-  cursor:pointer;padding:4px;
+  border:0;
+  background:none;
+  text-align:center;
+  color:#777;
+  font-size:10px;
+  cursor:pointer;
+  padding:5px 3px;
+  border-radius:9px;
+  transition:color .2s ease,background .2s ease,transform .2s ease;
 }
 .bottom-nav .nav-icon{
-  display:block;font-size:18px;margin-bottom:4px;
+  display:block;
+  font-size:19px;
+  margin-bottom:4px;
+  transition:transform .2s ease;
+}
+.bottom-nav a:hover,.bottom-nav button:hover{
+  color:var(--navy);
+  background:#f6f3ed;
+}
+.bottom-nav a:hover .nav-icon,
+.bottom-nav button:hover .nav-icon{
+  transform:translateY(-2px);
+}
+.bottom-nav a:active,.bottom-nav button:active{
+  transform:scale(.94);
 }
 .bottom-nav a.active{
-  color:var(--navy);font-weight:bold;
+  color:var(--navy);
+  font-weight:bold;
 }
+.bottom-nav a.active .nav-icon{color:#b68b42}
 
+/* RESPONSIVE */
 @media(min-width:600px){
-  body{padding:25px 0}
+  body{padding:25px 0 100px}
   .container{
-    border-radius:16px;
-    box-shadow:0 8px 40px #0001;
+    border-radius:17px;
+    box-shadow:0 8px 40px rgba(0,0,0,.08);
   }
   .bottom-nav{
-    bottom:25px;border-radius:0 0 16px 16px;
+    bottom:25px;
+    border-radius:0 0 17px 17px;
   }
 }
-@media(max-width:360px){
+@media(max-width:380px){
+  header{padding:22px 15px 25px}
+  h1{font-size:25px}
+  section{padding:21px 13px}
+  .form-card{padding:16px 12px}
+  .products{gap:8px}
+  .product{padding:12px 10px}
+  .socials{gap:7px}
+  .socials a{min-width:0;flex:1;padding:10px 9px}
+  .field-grid{gap:8px}
+  .toggle{font-size:11px}
+}
+@media(max-width:320px){
   .products{grid-template-columns:1fr}
   .field-grid{grid-template-columns:1fr}
-  .socials a{min-width:115px}
+  .socials a{flex-basis:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
 }
 </style>
 </head>
@@ -313,7 +592,7 @@ footer{
 <body>
 <div class="container">
 
-<!-- PROFIL AMY -->
+<!-- PROFIL -->
 <header id="utama">
   <div class="online">
     <span class="dot"></span>
@@ -333,13 +612,14 @@ footer{
 
   <a class="whatsapp"
      href="https://wa.me/60163713510"
-     target="_blank" rel="noopener">
-    ☎ WhatsApp Amy
+     target="_blank" rel="noopener noreferrer">
+    <span>☎</span> WhatsApp Amy
   </a>
 
   <div class="social-title">IKUTI MEDIA SOSIAL AMY</div>
 
   <div class="socials">
+
     <a href="https://www.tiktok.com/@emid_ed?_r=1&_t=ZS-9BDyqyTOb3f"
        target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" aria-label="TikTok">
@@ -355,6 +635,7 @@ footer{
       </svg>
       Instagram
     </a>
+
   </div>
 
   <p class="intro">
@@ -364,7 +645,7 @@ footer{
   </p>
 </header>
 
-<!-- PRODUK -->
+<!-- PILIHAN PERLINDUNGAN -->
 <section id="produk">
   <div class="section-title">
     <h2>Pilihan Perlindungan</h2>
@@ -373,34 +654,42 @@ footer{
 
   <div class="products">
 
-    <div class="product" data-product="Medical Card"
-         onclick="chooseProduct(this)">
+    <button class="product" type="button"
+            data-product="Medical Card"
+            aria-pressed="false"
+            onclick="chooseProduct(this)">
       <span class="tag">Pilihan</span>
-      <div class="symbol">🏥</div>
+      <span class="symbol">🏥</span>
       <strong>Medical Card</strong>
       <p>Anugerah Max & Asas 360</p>
-    </div>
+    </button>
 
-    <div class="product" data-product="Hibah"
-         onclick="chooseProduct(this)">
-      <div class="symbol">🛡️</div>
+    <button class="product" type="button"
+            data-product="Hibah"
+            aria-pressed="false"
+            onclick="chooseProduct(this)">
+      <span class="symbol">🛡️</span>
       <strong>Hibah</strong>
       <p>Warisan Gold</p>
-    </div>
+    </button>
 
-    <div class="product" data-product="Critical Illness"
-         onclick="chooseProduct(this)">
-      <div class="symbol">❤️</div>
+    <button class="product" type="button"
+            data-product="Critical Illness"
+            aria-pressed="false"
+            onclick="chooseProduct(this)">
+      <span class="symbol">❤️</span>
       <strong>Critical Illness</strong>
       <p>Critical Care</p>
-    </div>
+    </button>
 
-    <div class="product" data-product="GIO Plan"
-         onclick="chooseProduct(this)">
-      <div class="symbol">📋</div>
+    <button class="product" type="button"
+            data-product="GIO Plan"
+            aria-pressed="false"
+            onclick="chooseProduct(this)">
+      <span class="symbol">📋</span>
       <strong>GIO Plan</strong>
       <p>PRUBSN Aspirasi</p>
-    </div>
+    </button>
 
   </div>
 
@@ -409,7 +698,7 @@ footer{
   </p>
 </section>
 
-<!-- BORANG -->
+<!-- SEMAK KELAYAKAN -->
 <section id="semak">
   <div class="form-card">
 
@@ -430,7 +719,6 @@ footer{
     <form id="quoteForm">
 
       <label>Jenis Permohonan *</label>
-
       <div class="toggle-row">
         <button class="toggle active" type="button"
                 id="adultBtn" onclick="setType('adult')">
@@ -445,17 +733,17 @@ footer{
       <!-- DEWASA -->
       <div id="adultFields">
 
-        <label>Nama Penuh *</label>
+        <label for="name">Nama Penuh *</label>
         <input id="name" type="text"
                placeholder="Contoh: Ahmad bin Ali" required>
 
         <div class="field-grid">
           <div>
-            <label>Tarikh Lahir *</label>
+            <label for="dob">Tarikh Lahir *</label>
             <input id="dob" type="date" required>
           </div>
           <div>
-            <label>Status Merokok *</label>
+            <label for="smoking">Status Merokok *</label>
             <select id="smoking" required>
               <option value="">Pilih</option>
               <option>Tidak merokok</option>
@@ -465,7 +753,7 @@ footer{
           </div>
         </div>
 
-        <label>Pekerjaan *</label>
+        <label for="occupation">Pekerjaan *</label>
         <input id="occupation" type="text"
                placeholder="Contoh: Eksekutif" required>
       </div>
@@ -473,48 +761,46 @@ footer{
       <!-- ANAK -->
       <div class="child-fields" id="childFields">
 
-        <label>Nama Anak *</label>
+        <label for="childName">Nama Anak *</label>
         <input id="childName" type="text"
                placeholder="Nama penuh anak">
 
-        <label>Tarikh Lahir Anak *</label>
+        <label for="childDob">Tarikh Lahir Anak *</label>
         <input id="childDob" type="date">
 
         <p style="font-size:11px;color:#777;line-height:1.5">
           Maklumat berikut adalah maklumat ibu, bapa atau penjaga.
         </p>
 
-        <label>Nama Ibu / Bapa / Penjaga *</label>
+        <label for="parentName">Nama Ibu / Bapa / Penjaga *</label>
         <input id="parentName" type="text"
                placeholder="Nama penuh penjaga">
 
-        <label>Tarikh Lahir Ibu / Bapa / Penjaga *</label>
+        <label for="parentDob">Tarikh Lahir Ibu / Bapa / Penjaga *</label>
         <input id="parentDob" type="date">
 
-        <label>Pekerjaan Ibu / Bapa / Penjaga *</label>
+        <label for="parentOccupation">Pekerjaan Ibu / Bapa / Penjaga *</label>
         <input id="parentOccupation" type="text"
                placeholder="Contoh: Guru">
 
-        <label>Status Merokok *</label>
+        <label for="parentSmoking">Status Merokok *</label>
         <select id="parentSmoking">
           <option value="">Pilih</option>
           <option>Tidak merokok</option>
           <option>Merokok</option>
           <option>Bekas perokok</option>
         </select>
-
       </div>
 
-      <!-- MAKLUMAT HUBUNGAN -->
-      <label>Nombor Telefon untuk Dihubungi *</label>
+      <label for="phone">Nombor Telefon untuk Dihubungi *</label>
       <input id="phone" type="tel"
              placeholder="Contoh: 0123456789" required>
 
-      <label>Lokasi *</label>
+      <label for="location">Lokasi *</label>
       <input id="location" type="text"
              placeholder="Contoh: Shah Alam" required>
 
-      <label>Pilihan Perlindungan *</label>
+      <label for="protection">Pilihan Perlindungan *</label>
       <select id="protection" required>
         <option value="">Pilih perlindungan</option>
         <option>Medical Card - Anugerah Max</option>
@@ -525,9 +811,9 @@ footer{
         <option>Ingin konsultasi semua pilihan</option>
       </select>
 
-      <label>Nota Tambahan (Pilihan)</label>
+      <label for="note">Nota Tambahan (Pilihan)</label>
       <textarea id="note"
-                placeholder="Nyatakan pertanyaan atau keperluan anda..."></textarea>
+        placeholder="Nyatakan pertanyaan atau keperluan anda..."></textarea>
 
       <label class="consent">
         <input type="checkbox" id="consent" required>
@@ -555,11 +841,9 @@ footer{
 
   <a class="whatsapp"
      href="https://wa.me/60163713510"
-     target="_blank" rel="noopener">
-    WhatsApp: 016 371 3510
+     target="_blank" rel="noopener noreferrer">
+    ☎ WhatsApp: 016 371 3510
   </a>
-
-  <br>
 
   <img class="mg-logo"
        src="./muqmeen-group.png"
@@ -573,8 +857,8 @@ footer{
 
 </div>
 
-<!-- NAVIGASI BAWAH -->
-<nav class="bottom-nav">
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav" aria-label="Navigasi utama">
   <a href="#utama" class="active">
     <span class="nav-icon">⌂</span>Utama
   </a>
@@ -593,15 +877,21 @@ footer{
 let applicationType="adult";
 let selectedProducts=[];
 
+const $=id=>document.getElementById(id);
+const get=id=>$(id).value.trim();
+
+/* PRODUCT SELECTION */
 function chooseProduct(card){
   const product=card.dataset.product;
-  card.classList.toggle("selected");
 
   if(selectedProducts.includes(product)){
     selectedProducts=selectedProducts.filter(x=>x!==product);
   }else{
     selectedProducts.push(product);
   }
+
+  card.classList.toggle("selected",selectedProducts.includes(product));
+  card.setAttribute("aria-pressed",String(selectedProducts.includes(product)));
 
   const map={
     "Medical Card":"Medical Card - Anugerah Max",
@@ -610,116 +900,111 @@ function chooseProduct(card){
     "GIO Plan":"GIO Plan - PRUBSN Aspirasi"
   };
 
-  const protection=document.getElementById("protection");
-
   if(selectedProducts.length===1){
-    protection.value=map[selectedProducts[0]];
+    $("protection").value=map[selectedProducts[0]];
   }else if(selectedProducts.length>1){
-    protection.value="Ingin konsultasi semua pilihan";
+    $("protection").value="Ingin konsultasi semua pilihan";
   }else{
-    protection.value="";
+    $("protection").value="";
   }
+
+  updateProgress();
 }
 
+/* APPLICATION TYPE */
 function setType(type){
   applicationType=type;
   const adult=type==="adult";
 
-  document.getElementById("adultFields").style.display=
-    adult?"block":"none";
+  $("adultFields").style.display=adult?"block":"none";
+  $("childFields").classList.toggle("show",!adult);
 
-  document.getElementById("childFields").classList.toggle(
-    "show",!adult
-  );
+  $("adultBtn").classList.toggle("active",adult);
+  $("childBtn").classList.toggle("active",!adult);
 
-  document.getElementById("adultBtn").classList.toggle(
-    "active",adult
-  );
-
-  document.getElementById("childBtn").classList.toggle(
-    "active",!adult
-  );
+  $("adultBtn").setAttribute("aria-pressed",String(adult));
+  $("childBtn").setAttribute("aria-pressed",String(!adult));
 
   ["name","dob","smoking","occupation"].forEach(id=>{
-    document.getElementById(id).required=adult;
+    $(id).required=adult;
+    $(id).disabled=!adult;
   });
 
-  ["childName","childDob","parentName","parentDob",
-   "parentOccupation","parentSmoking"].forEach(id=>{
-    document.getElementById(id).required=!adult;
+  [
+    "childName","childDob","parentName",
+    "parentDob","parentOccupation","parentSmoking"
+  ].forEach(id=>{
+    $(id).required=!adult;
+    $(id).disabled=adult;
   });
 
   updateProgress();
 }
 
+/* PROGRESS */
 function updateProgress(){
   const ids=applicationType==="adult"
     ?["name","dob","smoking","occupation","phone","location","protection"]
     :["childName","childDob","parentName","parentDob",
       "parentOccupation","parentSmoking","phone","location","protection"];
 
-  const filled=ids.filter(id=>
-    document.getElementById(id).value.trim()!==""
-  ).length;
-
+  const filled=ids.filter(id=>get(id)!=="").length;
   const percentage=Math.round(filled/ids.length*100);
 
-  document.getElementById("progressText").textContent=
-    percentage+"% Selesai";
-
-  document.getElementById("progressBar").style.width=
-    percentage+"%";
+  $("progressText").textContent=percentage+"% Selesai";
+  $("progressBar").style.width=percentage+"%";
 }
 
 document.querySelectorAll(
-  "#quoteForm input,#quoteForm select"
+  "#quoteForm input,#quoteForm select,#quoteForm textarea"
 ).forEach(el=>{
   el.addEventListener("input",updateProgress);
   el.addEventListener("change",updateProgress);
 });
 
-document.getElementById("quoteForm").addEventListener(
-  "submit",function(e){
-    e.preventDefault();
+/* WHATSAPP FORM */
+$("quoteForm").addEventListener("submit",function(e){
+  e.preventDefault();
 
-    const get=id=>document.getElementById(id).value.trim();
-
-    let message=
-      "Assalamualaikum Amy Diana. Saya ingin mendapatkan konsultasi takaful.\n\n";
-
-    if(applicationType==="adult"){
-      message+="*PERMOHONAN DEWASA*\n";
-      message+="Nama: "+get("name")+"\n";
-      message+="Tarikh Lahir: "+get("dob")+"\n";
-      message+="Pekerjaan: "+get("occupation")+"\n";
-      message+="Status Merokok: "+get("smoking")+"\n";
-    }else{
-      message+="*PERMOHONAN ANAK BAWAH 18 TAHUN*\n";
-      message+="Nama Anak: "+get("childName")+"\n";
-      message+="Tarikh Lahir Anak: "+get("childDob")+"\n";
-      message+="Nama Penjaga: "+get("parentName")+"\n";
-      message+="Tarikh Lahir Penjaga: "+get("parentDob")+"\n";
-      message+="Pekerjaan Penjaga: "+get("parentOccupation")+"\n";
-      message+="Status Merokok Penjaga: "+get("parentSmoking")+"\n";
-    }
-
-    message+="Telefon: "+get("phone")+"\n";
-    message+="Lokasi: "+get("location")+"\n";
-    message+="Pilihan Perlindungan: "+get("protection")+"\n";
-
-    if(get("note")){
-      message+="Nota: "+get("note")+"\n";
-    }
-
-    message+="\nTerima kasih.";
-
-    const url="https://wa.me/60163713510?text="+
-      encodeURIComponent(message);
-
-    window.open(url,"_blank");
+  const phone=get("phone");
+  if(!/^[0-9+\-\s()]{8,20}$/.test(phone)){
+    alert("Sila masukkan nombor telefon yang sah.");
+    $("phone").focus();
+    return;
   }
-);
 
+  let message=
+    "Assalamualaikum Amy Diana. Saya ingin mendapatkan konsultasi takaful.\n\n";
+
+  if(applicationType==="adult"){
+    message+="*PERMOHONAN DEWASA*\n";
+    message+="Nama: "+get("name")+"\n";
+    message+="Tarikh Lahir: "+get("dob")+"\n";
+    message+="Pekerjaan: "+get("occupation")+"\n";
+    message+="Status Merokok: "+get("smoking")+"\n";
+  }else{
+    message+="*PERMOHONAN ANAK BAWAH 18 TAHUN*\n";
+    message+="Nama Anak: "+get("childName")+"\n";
+    message+="Tarikh Lahir Anak: "+get("childDob")+"\n";
+    message+="Nama Penjaga: "+get("parentName")+"\n";
+    message+="Tarikh Lahir Penjaga: "+get("parentDob")+"\n";
+    message+="Pekerjaan Penjaga: "+get("parentOccupation")+"\n";
+    message+="Status Merokok Penjaga: "+get("parentSmoking")+"\n";
+  }
+
+  message+="Telefon: "+phone+"\n";
+  message+="Lokasi: "+get("location")+"\n";
+  message+="Pilihan Perlindungan: "+get("protection")+"\n";
+
+  if(get("note"))message+="Nota: "+get("note")+"\n";
+
+  message+="\nTerima kasih.";
+
+  const url="https://wa.me/60163713510?text="+encodeURIComponent(message);
+  window.open(url,"_blank","noopener");
+});
+
+/* SHARE */
 async function sharePage(){
   const data={
     title:"Amy Diana | Takaful Consultant",
@@ -729,15 +1014,13 @@ async function sharePage(){
 
   if(navigator.share){
     try{await navigator.share(data)}catch(e){}
-  }else if(navigator.clipboard){
+  }else{
     try{
       await navigator.clipboard.writeText(window.location.href);
       alert("Link website berjaya disalin!");
     }catch(e){
-      prompt("Salin link ini:",window.location.href);
+      prompt("Salin link website ini:",window.location.href);
     }
-  }else{
-    prompt("Salin link ini:",window.location.href);
   }
 }
 
@@ -745,13 +1028,12 @@ async function sharePage(){
 const sections=["utama","produk","semak"];
 const navLinks=document.querySelectorAll(".bottom-nav a");
 
-window.addEventListener("scroll",()=>{
+function updateNavigation(){
   let current="utama";
 
   sections.forEach(id=>{
-    const section=document.getElementById(id);
-
-    if(section&&window.scrollY>=section.offsetTop-150){
+    const section=$(id);
+    if(section && window.scrollY>=section.offsetTop-160){
       current=id;
     }
   });
@@ -762,7 +1044,10 @@ window.addEventListener("scroll",()=>{
       link.getAttribute("href")==="#"+current
     );
   });
-});
+}
+
+window.addEventListener("scroll",updateNavigation,{passive:true});
+updateNavigation();
 </script>
 
 </body>
